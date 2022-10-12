@@ -9,7 +9,7 @@ const populateFilters = () => {
   filters
     .append("span")
       .attr("class", "filter-icon")
-      .style("background-image", d => `url(../assets/icon-${d.id}.svg)`);
+      .style("background-image", d => `url(./assets/icon-${d.id}.svg)`);
 
   filters
     .append("span")
