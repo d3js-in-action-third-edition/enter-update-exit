@@ -40,6 +40,7 @@ h2 {
   line-height: 1.2;
 }
 h3 {
+  margin: 1rem 0;
   font-size: 2rem;
 }
 @media screen and (max-width: 596px) {
