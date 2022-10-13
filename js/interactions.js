@@ -86,28 +86,28 @@ const handleClickOnFilter = (data) => {
 
 const handleTooltip = () => {
 
-  const tooltipWidth = 150;
-  const tooltipHeight = 50;
-  const tooltip = d3.select("#tooltip")
-    .style("top", `${margin.top}px`)
-    .style("left", `${margin.left}px`)
-    .style("width", `${tooltipWidth}px`)
-    .style("height", `${tooltipHeight}px`);
+  const tooltip = innerChart
+    .append("text")
+      .attr("text-anchor", "middle")
+      .attr("fill", "#e2eeff");
 
   d3.selectAll(".cetacean")
     .on("mouseenter", (e, d) => {
-      const cx = e.layerX;
-      const cy = e.layerY;
+      console.log(d)
+      const cx = e.target.getAttribute("cx");
+      const cy = e.target.getAttribute("cy");
+      const r = e.target.getAttribute("r");
       
       tooltip
+        .attr("x", cx)
+        .attr("y", cy - r - 10)
         .text(d.common_name)
-        .style("transform", `translate(${cx - 0.5*tooltipWidth}px, ${cy - 2*tooltipHeight - 10}px)`)
         .transition()
         .style("opacity", 1);
     })
-    .on("mouseleave", (e, d) => {
+    .on("mouseleave", () => {
       tooltip
-        .style("transform", `translate(0px, 0px)`)
+        .attr("y", -500)
         .style("opacity", 0);
     });
 

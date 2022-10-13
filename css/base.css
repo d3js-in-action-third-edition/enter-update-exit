@@ -64,6 +64,12 @@ a:hover, a:focus {
   transition-timing-function: ease-in;
 }
 
+/* Intro */
+.intro,
+.methodology {
+  max-width: 800px;
+}
+
 /* Sources */
 .sources ul {
   margin: 0;

@@ -78,22 +78,3 @@
 .legend-conservation-status svg {
   margin-right: 10px;
 }
-
-/* Tooltip */
-#tooltip {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  padding: 8px 10px;
-  text-align: center;
-  font-size: 1.4rem;
-  line-height: 1.2;
-  color: #192e4d;
-  background-color: #e2eeff;
-  border-radius: 4px;
-  opacity: 0;
-}

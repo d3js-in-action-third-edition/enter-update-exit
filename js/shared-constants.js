@@ -1,5 +1,5 @@
 // Chart
-const margin = {top: 50, right: 50, bottom: 50, left: 40};
+const margin = {top: 50, right: 50, bottom: 50, left: 60};
 const width = 1200;
 const height = 550;
 const innerWidth = width - margin.left - margin.right;
@@ -16,7 +16,7 @@ const hemispheres = [
 
 // Conservation status
 const conservationStatuses = [
-  { id: "LC", label: "Least Concern", color: "#307351" },
+  { id: "LC", label: "Least Concern", color: "#20BF55" },
   { id: "NT", label: "Near Threatened", color: "#5EB1BF" },
   { id: "VU", label: "Vulnerable", color: "#ECC30B" },
   { id: "EN", label: "Endangered", color: "#EF7B45" },
