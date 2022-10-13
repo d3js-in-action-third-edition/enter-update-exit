@@ -39,7 +39,7 @@ const populateLegend = () => {
   const smallSize = 5;
   const circles = sizes 
     .append("g")
-      .attr("fill", "#e2eeff")
+      .attr("fill", "#192e4d")
       .attr("fill-opacity", 0.3);
   circles
     .append("circle")
@@ -60,7 +60,7 @@ const populateLegend = () => {
   const linesLength = 70;
   const lines = sizes
     .append("g")
-      .attr("stroke", "#e2eeff")
+      .attr("stroke", "#192e4d")
       .attr("stroke-width", 2)
       .attr("stroke-dasharray", "6 4");
   lines
@@ -84,7 +84,7 @@ const populateLegend = () => {
 
   const labels = sizes
     .append("g")
-      .attr("fill", "#e2eeff")
+      .attr("fill", "#192e4d")
       .attr("dominant-baseline", "middle");
   labels
     .append("text")

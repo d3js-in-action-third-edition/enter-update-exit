@@ -89,7 +89,7 @@ const handleTooltip = () => {
   const tooltip = innerChart
     .append("text")
       .attr("text-anchor", "middle")
-      .attr("fill", "#e2eeff");
+      .attr("fill", "#192e4d");
 
   d3.selectAll(".cetacean")
     .on("mouseenter", (e, d) => {
