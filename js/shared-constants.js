@@ -20,7 +20,7 @@ const conservationStatuses = [
   { id: "NT", label: "Near Threatened", color: "#5EB1BF" },
   { id: "VU", label: "Vulnerable", color: "#ECC30B" },
   { id: "EN", label: "Endangered", color: "#EF7B45" },
-  { id: "CR", label: "Critically Endangered", color: "#D84727" },
+  { id: "CR", label: "Critically Endangered", color: "#E9360D" },
 ];
 
 // Scales
