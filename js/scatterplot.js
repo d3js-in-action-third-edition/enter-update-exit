@@ -26,38 +26,38 @@ const drawScatterplot = (data) => {
     .nice();
 
   // Y scale
-  const maxWeigth = d3.max(data, d => d.max_weight_t);
+  const maxSize = d3.max(data, d => d.max_size_m);
   yScale
-    .domain([0, maxWeigth])
+    .domain([0, maxSize])
     .range([innerHeight, 0])
     .nice();
 
   // Radius scale
-  const maxSize = d3.max(data, d => d.max_size_m);
+  const maxWeigth = d3.max(data, d => d.max_weight_t);
   rScale
-    .domain([0, maxSize])
-    .range([0, 40]);
+    .domain([0, maxWeigth])
+    .range([0, 45]);
   
 
   /***************************/
   /*     Append the axes     */
   /***************************/
   // Bottom axis
-  const bottomAxis = d3.axisBottom(xScale);
+  const bottomAxisGenerator = d3.axisBottom(xScale);
   innerChart
     .append("g")
       .attr("class", "axis-x")
       .attr("transform", `translate(0, ${innerHeight})`)
-      .call(bottomAxis);
+      .call(bottomAxisGenerator);
   d3.selectAll(".axis-x text")
     .attr("y", "10px");
 
   // Left axis
-  const leftAxis = d3.axisLeft(yScale);
+  const leftAxisGenerator = d3.axisLeft(yScale);
   innerChart
     .append("g")
       .attr("class", "axis-y")
-      .call(leftAxis);
+      .call(leftAxisGenerator);
 
   // Add label to the axes
   svg
@@ -69,7 +69,7 @@ const drawScatterplot = (data) => {
       .style("font-size", "18px");
   svg
     .append("text")
-      .text("Max weigth (t)")
+      .text("Max size (m)")
       .attr("dominant-baseline", "hanging")
       .attr("y", 20)
       .style("font-size", "18px");
@@ -78,18 +78,27 @@ const drawScatterplot = (data) => {
   /******************************/
   /*     Append the circles     */
   /******************************/
+  innerChart  // Ensures that we have something to zoom against.
+    .append("rect")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", innerWidth)
+    .attr("height", innerHeight)
+    .attr("fill", "transparent");
+
   innerChart
     .selectAll(".cetacean")
     .data(data)
     .join("circle")
       .attr("class", "cetacean")
       .attr("cx", d => xScale(d.global_population_estimate))
-      .attr("cy", d => yScale(d.max_weight_t))
-      .attr("r", d => rScale(d.max_size_m))
+      .attr("cy", d => yScale(d.max_size_m))
+      .attr("r", d => rScale(d.max_weight_t))
       .attr("fill", d => colorScale(d.status))
       .attr('fill-opacity', 0.6)
       .attr("stroke", d => colorScale(d.status))
-      .attr("stroke-width", 2);
-
+      .attr("stroke-width", 2)
+      .on("mouseenter", showTooltip)
+      .on("mouseleave", hideTooltip);
 
 };

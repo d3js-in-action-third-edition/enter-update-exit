@@ -1,4 +1,4 @@
-const populateLegend = () => {
+const populateLegend = (data) => {
 
   // Conservation statuses
   const statuses = d3.select(".legend-conservation-status")
@@ -26,36 +26,36 @@ const populateLegend = () => {
       .text(d => d.label);
 
 
-  // Max size
-  const sizes = d3.select(".legend-size")
+  // Weight
+  const sizes = d3.select(".legend-weight")
     .append("svg")
-      .attr("width", 150)
+      .attr("width", 180)
       .attr("height", 100)
     .append("g")
       .attr("transform", "translate(0, 10)");
 
-  const maxSize = 33;
-  const mediumSize = 15;
-  const smallSize = 5;
+  const maxWeight = d3.max(data, d => d.max_weight_t);
+  const mediumWeight = 80;
+  const lowWeight = 10;
   const circles = sizes 
     .append("g")
       .attr("fill", "#192e4d")
       .attr("fill-opacity", 0.3);
   circles
     .append("circle")
-      .attr("cx", rScale(maxSize))
-      .attr("cy", rScale(maxSize))
-      .attr("r", rScale(maxSize));
+      .attr("cx", rScale(maxWeight))
+      .attr("cy", rScale(maxWeight))
+      .attr("r", rScale(maxWeight));
   circles
     .append("circle")
-      .attr("cx", rScale(maxSize))
-      .attr("cy", 2*rScale(maxSize) - rScale(mediumSize))
-      .attr("r", rScale(mediumSize));
+      .attr("cx", rScale(maxWeight))
+      .attr("cy", 2*rScale(maxWeight) - rScale(mediumWeight))
+      .attr("r", rScale(mediumWeight));
   circles
     .append("circle")
-      .attr("cx", rScale(maxSize))
-      .attr("cy", 2*rScale(maxSize) - rScale(smallSize))
-      .attr("r", rScale(smallSize));
+      .attr("cx", rScale(maxWeight))
+      .attr("cy", 2*rScale(maxWeight) - rScale(lowWeight))
+      .attr("r", rScale(lowWeight));
 
   const linesLength = 70;
   const lines = sizes
@@ -65,22 +65,22 @@ const populateLegend = () => {
       .attr("stroke-dasharray", "6 4");
   lines
     .append("line")
-      .attr("x1", rScale(maxSize))
+      .attr("x1", rScale(maxWeight))
       .attr("y1", 0)
-      .attr("x2", rScale(maxSize) + linesLength)
+      .attr("x2", rScale(maxWeight) + linesLength)
       .attr("y2", 0);
   lines
     .append("line")
-      .attr("x1", rScale(maxSize))
-      .attr("y1", 2*rScale(maxSize) - 2*rScale(mediumSize))
-      .attr("x2", rScale(maxSize) + linesLength)
-      .attr("y2", 02*rScale(maxSize) - 2*rScale(mediumSize));
+      .attr("x1", rScale(maxWeight))
+      .attr("y1", 2*rScale(maxWeight) - 2*rScale(mediumWeight))
+      .attr("x2", rScale(maxWeight) + linesLength)
+      .attr("y2", 02*rScale(maxWeight) - 2*rScale(mediumWeight));
   lines
     .append("line")
-      .attr("x1", rScale(maxSize))
-      .attr("y1", 2*rScale(maxSize) - 2*rScale(smallSize))
-      .attr("x2", rScale(maxSize) + linesLength)
-      .attr("y2", 02*rScale(maxSize) - 2*rScale(smallSize));
+      .attr("x1", rScale(maxWeight))
+      .attr("y1", 2*rScale(maxWeight) - 2*rScale(lowWeight))
+      .attr("x2", rScale(maxWeight) + linesLength)
+      .attr("y2", 02*rScale(maxWeight) - 2*rScale(lowWeight));
 
   const labels = sizes
     .append("g")
@@ -88,19 +88,19 @@ const populateLegend = () => {
       .attr("dominant-baseline", "middle");
   labels
     .append("text")
-      .attr("x", rScale(maxSize) + linesLength + 5)
+      .attr("x", rScale(maxWeight) + linesLength + 5)
       .attr("y", 0)
-      .text(`${maxSize}m`);
+      .text(`${maxWeight}t`);
   labels
     .append("text")
-      .attr("x", rScale(maxSize) + linesLength + 5)
-      .attr("y", 2*rScale(maxSize) - 2*rScale(mediumSize))
-      .text(`${mediumSize}m`);
+      .attr("x", rScale(maxWeight) + linesLength + 5)
+      .attr("y", 2*rScale(maxWeight) - 2*rScale(mediumWeight))
+      .text(`${mediumWeight}t`);
   labels
     .append("text")
-      .attr("x", rScale(maxSize) + linesLength + 5)
-      .attr("y", 2*rScale(maxSize) - 2*rScale(smallSize))
-      .text(`${smallSize}m`);
+      .attr("x", rScale(maxWeight) + linesLength + 5)
+      .attr("y", 2*rScale(maxWeight) - 2*rScale(lowWeight))
+      .text(`${lowWeight}t`);
 
 
 };

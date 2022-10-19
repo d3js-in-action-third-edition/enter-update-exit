@@ -4,7 +4,7 @@ d3.csv("./data/data.csv", d3.autoType).then(data => {
 
   drawScatterplot(data);
   populateFilters();
-  populateLegend();
+  populateLegend(data);
   handleClickOnFilter(data);
-  handleTooltip();
+  appendTooltip();
 });

@@ -7,11 +7,11 @@ const innerHeight = height - margin.top - margin.bottom;
 let innerChart;
 
 // Selectors
-const hemispheres = [
-  { id: "all", label: "Show all", isActive: true },
-  { id: "both", label: "Both hemispheres", isActive: false },
-  { id: "north", label: "North hemisphere", isActive: false },
-  { id: "south", label: "South hemisphere", isActive: false },
+const cetaceanFilters = [
+  { id: "all", label: "All cetaceans", isActive: true },
+  { id: "north", label: "Living in the northern hemisphere", isActive: false },
+  { id: "south", label: "Living in the southern hemisphere", isActive: false },
+  { id: "both", label: "Traveling through both hemispheres", isActive: false },
 ];
 
 // Conservation status
