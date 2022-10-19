@@ -19,9 +19,8 @@ const drawScatterplot = (data) => {
   /****************************/
   // X scale
   const maxPopulation = d3.max(data, d => d.global_population_estimate);
-  const minPopulation = d3.min(data, d => d.global_population_estimate);
   xScale
-    .domain([minPopulation, maxPopulation])
+    .domain([1, maxPopulation])
     .range([0, innerWidth])
     .nice();
 
@@ -62,30 +61,22 @@ const drawScatterplot = (data) => {
   // Add label to the axes
   svg
     .append("text")
-      .text("Population")
+      .text("Estimated population")
       .attr("text-anchor", "end")
       .attr("x", margin.left + innerWidth + 20)
-      .attr("y", height - 5)
+      .attr("y", height - 3)
       .style("font-size", "18px");
   svg
     .append("text")
       .text("Max size (m)")
       .attr("dominant-baseline", "hanging")
-      .attr("y", 20)
+      .attr("y", 15)
       .style("font-size", "18px");
 
 
   /******************************/
   /*     Append the circles     */
   /******************************/
-  innerChart  // Ensures that we have something to zoom against.
-    .append("rect")
-    .attr("x", 0)
-    .attr("y", 0)
-    .attr("width", innerWidth)
-    .attr("height", innerHeight)
-    .attr("fill", "transparent");
-
   innerChart
     .selectAll(".cetacean")
     .data(data)

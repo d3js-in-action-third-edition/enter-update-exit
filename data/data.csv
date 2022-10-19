@@ -4,7 +4,7 @@ uid,common_name,scientific_name,suborder,family,dorsal_fin,min_size_m,max_size_m
 3,Atlantic spotted dolphin,Stenella frontalis,Odontoceti,Delphinidae,Yes,1.70,2.30,0.14,both,100000,LC
 4,Atlantic white-sided dolphin,Lagenorhynchus acutus,Odontoceti,Delphinidae,Yes,1.90,2.50,0.2,north,250000,LC
 5,Australian snubfin dolphin,Orcaella heinsohni,Odontoceti,Delphinidae,Yes,2.10,2.60,0.15,south,9500,VU
-6,Baiji,Lipotes vexillifer,Odontoceti,Lipotidae,Yes,1.40,2.50,0.16,north,"6,5",CR
+6,Baiji,Lipotes vexillifer,Odontoceti,Lipotidae,Yes,1.40,2.50,0.16,north,7,CR
 7,Beluga,Delphinapterus leucas,Odontoceti,Monodontidae,No,3.00,5.00,1.50,north,136000,LC
 8,Blue whale,Balaenopterausculus,Mysticeti,Balaenopteridae,Yes,24.00,33.00,173.00,both,10000,EN
 9,Bowhead whale,Balaenaysticetus,Mysticeti,Balaenidae,No,14.00,16.00,70.00,north,10000,LC
