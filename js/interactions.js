@@ -34,7 +34,7 @@ const handleClickOnFilter = (data) => {
 
         // Reusable transition
         const t = d3.transition()
-          .duration(1000);
+          .duration(1500);
 
         // Update scatterplot
         const updatedData = datum.id === "all"
@@ -64,7 +64,7 @@ const handleClickOnFilter = (data) => {
                   .on("mouseleave", hideTooltip)
                   .transition(t)
                     .attr("cx", d => xScale(d.global_population_estimate))
-                    .attr("r", d => rScale(d.max_size_m))
+                    .attr("r", d => rScale(d.max_weight_t))
                     .style('opacity', 1);
             },
             function(update) {
